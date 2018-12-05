@@ -1,4 +1,4 @@
-  dist: trusty
+dist: trusty
   group: edge
   language: java
   sudo: required
@@ -9,3 +9,4 @@
   script:
     - cd restaurant-manager
     - mvn clean install
+
