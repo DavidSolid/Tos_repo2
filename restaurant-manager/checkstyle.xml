@@ -38,7 +38,7 @@
     	</module>
     	<module name="IllegalImport"/>
     	<module name="NeedBraces">
-    		<property name="allowEmptyLoopBody" value="true"/>
+    		<property name="tokens" value="LITERAL_IF, LITERAL_ELSE"/>
     	</module>
     </module>
 </module>
