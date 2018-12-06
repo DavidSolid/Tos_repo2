@@ -38,7 +38,7 @@
     	</module>
     	<module name="IllegalImport"/>
     	<module name="NeedBraces">
-    		<property name="allowEmptyLoopBody" value="false"/>
+    		<property name="allowEmptyLoopBody" value="true"/>
     	</module>
     </module>
 </module>
