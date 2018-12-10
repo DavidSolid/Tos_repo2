@@ -34,8 +34,30 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+    
+    public void getOrderPrice_EmptyList_ExpectedZero()
     {
-        assertTrue( true );
+    	//fail("Not implemented");
+    	assertTrue(true);
+    }
+    
+    public void getOrderPrice_ListMoreThan20Items_RestaurantBillExceptionThrown() {
+    	fail("Not Implemented");
+    }
+    
+    public void getOrderPrice_ListLessThan10PizzasAndSumLessThan100_ExpectedSum() {
+    	fail("Not Implemented");
+    }
+    
+    public void getOrderPrice_ListMoreThan10PizzasAndSumLessThan100_ExpectedSumWithoutCheapestPizza() {
+    	fail("Not Implemented");
+    }
+    
+    public void getOrderPrice_ListLessThan10PizzasAndSumMoreThan100_ExpectedSumWithDiscount() {
+    	fail("Not Implemented");
+    }
+    
+    public void getOrderPrice_ListMoreThan10PizzasAndSumMoreThan100_ExpectedSumWithoutCheapestPizzaWithDiscount() {
+    	fail("Not Implemented");
     }
 }
