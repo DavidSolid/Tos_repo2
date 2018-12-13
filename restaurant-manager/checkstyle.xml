@@ -10,6 +10,7 @@
     	<property name="max" value="60"/>
     </module>
     <module name="FileTabCharacter">
+        <property name="fileExtensions" value="md"/>
     	<property name="eachLine" value="true"/>
     </module>
     <module name="TreeWalker">
@@ -36,7 +37,9 @@
     		<property name="allowClassImports" value="false"/>
     		<property name="allowStaticMemberImports" value="true"/>
     	</module>
-    	<module name="IllegalImport"/>
+    	<module name="IllegalImport">
+            <property name="illegalPkgs" value="java.net"/>
+        </module>
     	<module name="NeedBraces">
     		<property name="tokens" value="LITERAL_IF, LITERAL_ELSE"/>
     	</module>
