@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+"http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+    <module name="Header">
+    	<property name="header" value="////////////////////////////////////////////////////////////////////\n// Enrico Cancelli 1143080\n////////////////////////////////////////////////////////////////////"/>
+    	<property name="fileExtensions" value="java"/>
+    </module>
+    <module name="FileLength">
+    	<property name="max" value="60"/>
+    </module>
+    <module name="FileTabCharacter">
+        <property name="fileExtensions" value="md"/>
+    	<property name="eachLine" value="true"/>
+    </module>
+    <module name="TreeWalker">
+    	<property name="fileExtensions" value="java"/>
+    	<module name="BooleanExpressionComplexity">
+  		<property name="max" value="7"/>
+    	</module>
+	    <module name="CyclomaticComplexity">
+    		<property name="max" value="10"/>
+ 	   </module>
+    	<module name="LineLength">
+    		<property name="max" value="100"/>
+   	 </module>
+  	  <module name="MethodLength">
+    		<property name="tokens" value="METHOD_DEF"/>
+    		<property name="max" value="60"/>
+    		<property name="countEmpty" value="false"/>
+    	</module>
+    	<module name="EmptyCatchBlock">
+    		<property name="exceptionVariableName" value="expected|ignore"/>
+    	</module>
+    	<module name="AvoidStarImport">
+    		<property name="excludes" value="java.util"/>
+    		<property name="allowClassImports" value="false"/>
+    		<property name="allowStaticMemberImports" value="true"/>
+    	</module>
+    	<module name="IllegalImport">
+            <property name="illegalPkgs" value="java.net"/>
+        </module>
+    	<module name="NeedBraces">
+    		<property name="tokens" value="LITERAL_IF, LITERAL_ELSE"/>
+    	</module>
+    </module>
+</module>
+
