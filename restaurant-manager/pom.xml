@@ -70,9 +70,9 @@
     							</excludes>
     							<limits>
       								<limit>
-        								<counter>INSTRUCTION</counter>
+        								<counter>LINE</counter>
         								<value>COVEREDRATIO</value>
-        								<minimum>1</minimum>
+        								<minimum>1.0</minimum>
       								</limit>
     							</limits>
   						</rule>
@@ -80,6 +80,14 @@
 				</configuration>
 			</execution>
 		</executions>
+            </plugin>
+            <plugin>
+              <groupId>org.eluder.coveralls</groupId>
+              <artifactId>coveralls-maven-plugin</artifactId>
+              <version>4.3.0</version>
+              <configuration>
+                <repoToken>1yKAHix93edxmdyG8hbMi0cXCvFbmQWC6</repoToken>
+              </configuration>
             </plugin>
         </plugins>
     </build>
