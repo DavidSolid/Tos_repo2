@@ -18,20 +18,16 @@ public class App implements RestaurantBill
 {
 	@Override
 	public double getOrderPrice(List<MenuItem> itemsOrdered) throws RestaurantBillException {
+		if(itemsOrdered==null) {
+			return 0;
+		}
 		if(itemsOrdered.size()>20) {
 			throw new RestaurantBillException("Number Item Exceeded");
 		}
 		
-		double sum=itemsOrdered.stream().mapToDouble(MenuItem::getPrice).min().orElseThrow(()->new RestaurantBillException("Min not Found"));
+		double sum=itemsOrdered.stream().mapToDouble(MenuItem::getPrice).sum();
 		
-		if(itemsOrdered.stream().mapToInt((a)->{
-			if(a.getType()==itemType.Pizza) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		}).sum()>10) {
+		if(itemsOrdered.stream().filter((a)->a.getType()==itemType.Pizza).count()>10) {
 			sum-=itemsOrdered.stream().mapToDouble((a)->{
 				if(a.getType()==itemType.Pizza) {
 					return a.getPrice();
@@ -39,7 +35,7 @@ public class App implements RestaurantBill
 				else {
 					return Double.MAX_VALUE;
 				}
-			}).min().orElseThrow(()->new RestaurantBillException("Min not Found"));
+			}).min().orElse(0);
 		}
 		
 		if(sum>100) {
@@ -47,9 +43,4 @@ public class App implements RestaurantBill
 		}
 		return sum;
 	}
-	
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
 }
