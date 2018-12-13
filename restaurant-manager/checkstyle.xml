@@ -19,10 +19,10 @@
   		<property name="max" value="7"/>
     	</module>
 	    <module name="CyclomaticComplexity">
-    		<property name="max" value="5"/>
+    		<property name="max" value="10"/>
  	   </module>
     	<module name="LineLength">
-    		<property name="max" value="92"/>
+    		<property name="max" value="100"/>
    	 </module>
   	  <module name="MethodLength">
     		<property name="tokens" value="METHOD_DEF"/>
