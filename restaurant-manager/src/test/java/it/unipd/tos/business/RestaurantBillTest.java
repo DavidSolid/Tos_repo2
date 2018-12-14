@@ -1,30 +1,26 @@
 ////////////////////////////////////////////////////////////////////
 // Enrico Cancelli 1143080
 ////////////////////////////////////////////////////////////////////
-package it.unipd.tos;
+package it.unipd.tos.business;
 
 import org.junit.Test;
+
+import it.unipd.tos.business.exception.RestaurantBillException;
+import it.unipd.tos.model.MenuItem;
+import it.unipd.tos.model.MenuItem.itemType;
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import it.unipd.tos.model.MenuItem;
-import it.unipd.tos.model.MenuItem.itemType;
-import it.unipd.tos.business.RestaurantBill;
-import it.unipd.tos.business.exception.RestaurantBillException;
 
-
-/**
- * Unit test for simple App.
- */
-public class AppTest 
+public class RestaurantBillTest 
 {
 	
     @Test
     public void getOrderPrice_NullList_ExpectedZero()throws RestaurantBillException
     {
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=null;
     	assertEquals(0,res.getOrderPrice(list),0);
     }
@@ -32,14 +28,14 @@ public class AppTest
     @Test
     public void getOrderPrice_EmptyList_ExpectedZero()throws RestaurantBillException
     {
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=new ArrayList<MenuItem>();
     	assertEquals(0,res.getOrderPrice(list),0);
     }
     
     @Test(expected = RestaurantBillException.class)
     public void getOrderPrice_ListMoreThan20Items_RestaurantBillExceptionThrown()throws RestaurantBillException{
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=new ArrayList<MenuItem>();
     	for(int i=0;i<21;++i) {
     		list.add(new MenuItem(itemType.Primo,"a",0));
@@ -56,7 +52,7 @@ public class AppTest
     
     @Test
     public void getOrderPrice_ListLessThan10PizzasAndSumLessThan100_ExpectedSum()throws RestaurantBillException {
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=new ArrayList<MenuItem>();
     	for(int i=0;i<20;++i) {
     		list.add(new MenuItem(itemType.Primo,"a",5));
@@ -66,7 +62,7 @@ public class AppTest
     
     @Test
     public void getOrderPrice_ListMoreThan10PizzasAndSumLessThan100_ExpectedSumWithoutCheapestPizza()throws RestaurantBillException {
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=new ArrayList<MenuItem>();
     	for(int i=0;i<20;++i) {
     		list.add(new MenuItem(itemType.Pizza,"a",5));
@@ -76,7 +72,7 @@ public class AppTest
     
     @Test
     public void getOrderPrice_ListLessThan10PizzasAndSumMoreThan100_ExpectedSumWithDiscount()throws RestaurantBillException {
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=new ArrayList<MenuItem>();
     	for(int i=0;i<10;++i) {
     		list.add(new MenuItem(itemType.Pizza,"a",20));
@@ -86,7 +82,7 @@ public class AppTest
     
     @Test
     public void getOrderPrice_ListMoreThan10PizzasAndSumMoreThan100_ExpectedSumWithoutCheapestPizzaWithDiscount()throws RestaurantBillException {
-    	RestaurantBill res=new App();
+    	RestaurantBillInterface res=new RestaurantBill();
     	List<MenuItem> list=new ArrayList<MenuItem>();
     	for(int i=0;i<19;++i) {
     		list.add(new MenuItem(itemType.Pizza,"a",10));
